@@ -1,6 +1,6 @@
 package io.newschool.platform.u.profiles.domain.model.aggregates;
 
-import io.newschool.platform.u.profiles.domain.model.valueobjects.PersonName;
+import io.newschool.platform.u.profiles.domain.model.valueobjects.StudentName;
 import io.newschool.platform.u.profiles.domain.model.valueobjects.StreetAddress;
 import io.newschool.platform.u.profiles.domain.model.valueobjects.StudentDni;
 import jakarta.persistence.*;
@@ -19,8 +19,7 @@ public class Student extends AbstractAggregateRoot<Student> {
     private Long id;
 
     @Embedded
-    private PersonName name;
-
+    private StudentName name;
 
     @Embedded
     private StudentDni dni;
@@ -34,40 +33,32 @@ public class Student extends AbstractAggregateRoot<Student> {
     @Getter
     private String specialty;
 
-
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "street", column = @Column(name = "address_street")),
-            @AttributeOverride(name = "number", column = @Column(name = "address_number")),
-            @AttributeOverride(name = "city", column = @Column(name = "address_city")),
-            @AttributeOverride(name = "zipCode", column = @Column(name = "address_zipCode")),
-            @AttributeOverride(name = "country", column = @Column(name = "address_country"))
-    })
-    private StreetAddress address;
+   @Embedded
+    private StreetAddress streetAddress;
 
     public Student(String name, Long dni, String streetAddress, String gender, LocalDate birthDate, String specialty) {
-        this.name = new PersonName(name);
+        this.name = new StudentName(name);
         this.dni = new StudentDni(dni);
-        this.address = new StreetAddress(streetAddress);
+        this.streetAddress = new StreetAddress(streetAddress);
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.specialty = specialty;
     }
 
     public Student() {
 
     }
 
-    public void updateName(String name) {
-        this.name = new PersonName(name);
-    }
-
-    public String getStreetAddress() {
-        return this.address.getStreetAddress();
+    public String getName() {
+        return this.name.name();
     }
 
     public Long getStudentDni() {
+
         return this.dni.dni();
     }
 
-    public String getName() {
-        return this.name.name();
+    public String getStreetAddress() {
+        return this.streetAddress.streetAddress();
     }
 }
