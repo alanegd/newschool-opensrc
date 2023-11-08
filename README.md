@@ -3,7 +3,7 @@
 Pasos para generar el proyecto:
 
 1. Crear un nuevo proyecto con Spring initializr. Elegir Java, Maven, colocar como nombre raíz del grupo io.newschool.platform.u (De acuerdo a lo que indica el enunciado), colocar como package name io.newschool.platform.u . Para JDK se recomienda 20 Oracle OpenJDK v 20.0.1, pero yo usé openjdk-21 java version "21.0.1". Después, elegir Java 17 y packaging Jar.
-2. Agregar las dependencias: <br>
+2. Elegir Spring Boot 3.1.4 y agregar las dependencias: <br>
 Spring Boot DevTools <br>
 Lombok <br>
 Spring Modulith <br>
@@ -32,9 +32,10 @@ Validation <br>
     <dependency>`
     <br>
 15. Dentro de shared/infrastructure crear la carpeta documentation. Copiar y pegar los contenidos. Importar las dependencias en el pom.xml
-16. En profiles/domain/model/entities crear la clase Student. Agregar los atributos necesarios como private, agregar @Id y @Getter al id
-17. 
-
+16. En profiles/domain/model/aggregates crear la clase Student. Agregar los atributos necesarios como private, agregar @Entity a la clase, así como @Id y @Getter al id
+17. En profiles/domain/model/commands crear el record CreateStudentCommand
+18. En profiles/intrastructure/persistence/jpa/repositories crear StudentRepository
+19. En profiles/interfaces/rest/resources crear CreateStudentResource y StudentResource
 
 ### Reference Documentation
 
