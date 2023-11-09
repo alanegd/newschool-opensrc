@@ -7,7 +7,6 @@ import io.newschool.platform.u.profiles.domain.model.queries.GetStudentByIdQuery
 import java.util.Optional;
 
 public interface StudentQueryService {
-    Optional<Student> handle(GetStudentByDniQuery query);
     Optional<Student> handle(GetStudentByIdQuery query);
 
 }

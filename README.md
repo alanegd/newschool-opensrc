@@ -34,7 +34,7 @@ Validation <br>
 15. Dentro de shared/infrastructure crear la carpeta documentation. Copiar y pegar los contenidos. Importar las dependencias en el pom.xml
 16. En profiles/domain/model/aggregates crear la clase Student. Agregar los atributos necesarios como private, agregar @Entity a la clase, así como @Id y @Getter al id
 17. En profiles/domain/model/commands crear el record CreateStudentCommand
-18. En profiles/intrastructure/persistence/jpa/repositories crear StudentRepository
+18. En profiles/infrastructure/persistence/jpa/repositories crear StudentRepository
 19. En profiles/interfaces/rest/resources crear CreateStudentResource y StudentResource
 
 ### Reference Documentation

@@ -19,11 +19,6 @@ public class StudentQueryServiceImpl implements StudentQueryService {
     }
 
     @Override
-    public Optional<Student> handle(GetStudentByDniQuery query) {
-        return studentRepository.findByDni(query.studentDni());
-    }
-
-    @Override
     public Optional<Student> handle(GetStudentByIdQuery query) {
         return studentRepository.findById(query.studentId());
     }
